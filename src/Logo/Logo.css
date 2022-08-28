@@ -1,0 +1,18 @@
+.LogoDivClass{
+    margin: 4px;
+    margin-top: 0px;
+}
+
+.TiltFlex{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 11px 11px 19px -9px rgba(0,0,0,0.46);
+    margin: 15px;
+    height: 150px;
+    width: 150px;
+    background-color: transparent;
+}

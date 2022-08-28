@@ -1,0 +1,13 @@
+.Rank{
+    color: white;
+    padding: 0;
+    margin: 0;
+}
+
+.Head{
+    font-size: 1.5rem;
+}
+
+.Num{
+    font-size: 2rem;
+}

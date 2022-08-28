@@ -1,0 +1,18 @@
+.NavigationClass{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.SignOutClass{
+    font-size: 2rem;
+    color: black;
+    text-decoration: underline black;
+    padding: 3px;
+    margin: 0px;
+}
+
+.SignOutClass:hover{
+    cursor: pointer;
+    color: gray;
+    text-decoration: underline gray;
+}
