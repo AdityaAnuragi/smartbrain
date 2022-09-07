@@ -1,0 +1,15 @@
+.imageContainer{
+    position: relative;
+    border: 2px solid rgb(140, 255, 0);
+    margin: 24px auto 24px auto;
+    width: 300px;
+}
+
+.boundingVis{
+    position: absolute;
+}
+
+.imageasdf{
+    height: auto;
+    width: 300px;
+}
