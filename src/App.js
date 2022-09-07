@@ -24,7 +24,8 @@ class App extends Component {
     this.state = {
       input: "",
       anObj: {},
-      imageAspect : {}
+      imageAspect : {},
+      boxDisplay : false
     }
   }
   
@@ -41,7 +42,6 @@ class App extends Component {
   }
 
   onButtonSubmitFunc = (event) => {
-    console.log("clicked!")
     const USER_ID = 'aditya_anuragi';
     const PAT = 'ba7498e0fccf4c56ab2b55cdd863d5da';
     const APP_ID = 'my-first-application';
@@ -80,18 +80,17 @@ class App extends Component {
       .then(result => this.boxInfo(result.outputs[0].data.regions[0].region_info.bounding_box))
       // .then(result => console.log(result.outputs[0].data.regions[0].region_info.bounding_box))
       .catch(error => console.log('error', error));
+
+    this.setState({boxDisplay:true})
   }
 
   onInputChangeFunc = (event) => {
-    console.log(`target value =====> ${event.target.value}`);
     let link_holder = event.target.value
+    this.setState({boxDisplay: false})
     this.setState({input: link_holder})
-    
   }
 
   render() {
-    console.log("Anobj =v")
-    console.log(this.state.anObj)
     return (
       <div className="App">
         <Navigation />
@@ -104,7 +103,8 @@ class App extends Component {
         <FaceRecognition 
           imageLinkFromApp = {this.state.input} 
           dataCoordinatesFromApp = {this.state.anObj} 
-          imageAspectFromApp = {this.state.imageAspect} />
+          imageAspectFromApp = {this.state.imageAspect}
+          boxDisplayFromApp = {this.state.boxDisplay} />
       </div>
     );
   }
