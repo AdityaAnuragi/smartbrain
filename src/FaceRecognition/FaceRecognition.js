@@ -12,7 +12,12 @@ const FaceRecognition = (props) => {
     let boxHolderVariable = <div style={{display : 'none'}} ></div>
 
     if (boxDisplay){
-        boxHolderVariable = <div className='boundingVis' style={{border: "5px solid blue",width: `${widthData}px`,height: `${heightData}px`,top: `${dataCoordinates.top_row*imageAspect.imageHeight}px`,left:`${dataCoordinates.left_col*imageAspect.imageWidth}px` }} ></div>
+        boxHolderVariable = <div className='boundingVis'
+        style={{border: "5px solid blue",
+        width: `${widthData}px`,
+        height: `${heightData}px`,
+        top: `${dataCoordinates.top_row*imageAspect.imageHeight}px`,
+        left:`${dataCoordinates.left_col*imageAspect.imageWidth}px` }} ></div>
     }
     else{
         boxHolderVariable = <div style={{display : 'none'}} ></div>
