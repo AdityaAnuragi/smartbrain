@@ -9,7 +9,7 @@ const FaceRecognition = (props) => {
 
     let widthData = (dataCoordinates.right_col - dataCoordinates.left_col)*imageAspect.imageWidth;
     let heightData = (dataCoordinates.bottom_row - dataCoordinates.top_row)*imageAspect.imageHeight;
-    let boxHolderVariable = <div style={{display : 'none'}} ></div>
+    let boxHolderVariable = ""
 
     if (boxDisplay){
         boxHolderVariable = <div className='boundingVis'

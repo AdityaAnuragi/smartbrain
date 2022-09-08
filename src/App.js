@@ -39,6 +39,7 @@ class App extends Component {
     this.setState({anObj : objwithboundinginfo})
     let image = document.querySelector("#inputimage")
     this.setState({imageAspect : {imageWidth:image.width,  imageHeight:image.height}  })
+    this.setState({boxDisplay:true})
   }
 
   onButtonSubmitFunc = (event) => {
@@ -80,8 +81,6 @@ class App extends Component {
       .then(result => this.boxInfo(result.outputs[0].data.regions[0].region_info.bounding_box))
       // .then(result => console.log(result.outputs[0].data.regions[0].region_info.bounding_box))
       .catch(error => console.log('error', error));
-
-    this.setState({boxDisplay:true})
   }
 
   onInputChangeFunc = (event) => {
