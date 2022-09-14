@@ -1,11 +1,10 @@
 import React from 'react';
 
-const Navigation = () => {
+const Navigation = (props) => {
+    let {changeHomeArg} = props;
     return (
         <nav className='NavigationClass'>
-            <a href='https://reactjs.org/docs/react-component.html'>
-                <p className='SignOutClass' >Sign Out</p>
-            </a>
+            <p className='SignOutClass' onClick={() => changeHomeArg(false)} >Sign Out</p>
         </nav>
     )
 }
