@@ -97,11 +97,11 @@ class App extends Component {
   }
 
   changeLocFunc = (answer) => {
-    this.setState({loc : answer})
+    this.setState({ loc: answer })
   }
 
   changeHomeFunc = (stuff) => {
-    this.setState({home : stuff})
+    this.setState({ home: stuff })
   }
 
   render() {
@@ -110,7 +110,7 @@ class App extends Component {
         {
           this.state.home === true
             ? <div className="App">
-              <Navigation changeHomeArg = {this.changeHomeFunc}/>
+              <Navigation changeHomeArg={this.changeHomeFunc} />
               <Logo />
               <Rank />
               <ImageLinkForm
@@ -125,8 +125,8 @@ class App extends Component {
             </div>
             : (
               this.state.loc === "sign"
-                ? <Sign changeLocArg = {this.changeLocFunc} changeHomeArg = {this.changeHomeFunc} />
-                : <Register changeLocArg = {this.changeLocFunc} changeHomeArg = {this.changeHomeFunc}/>
+                ? <Sign changeLocArg={this.changeLocFunc} changeHomeArg={this.changeHomeFunc} />
+                : <Register changeLocArg={this.changeLocFunc} changeHomeArg={this.changeHomeFunc} />
             )
         }
       </>
