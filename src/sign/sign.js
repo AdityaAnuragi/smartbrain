@@ -19,6 +19,20 @@ class Sign extends Component {
     }
 
     onSubmitSignIn = () => {
+        this.props.changeEmailArg(this.state.signInEmail);
+
+        fetch('http://localhost:3000/image',{
+            method : 'put',
+            headers : {'Content-Type' : 'application/json'},
+            body : JSON.stringify({
+                email : this.state.signInEmail,
+                home : false
+            })
+        })
+            .then(response => response.json())
+            .then(entries => this.props.changeEntriesArg(entries))
+
+
         fetch('http://localhost:3000/signin',{
             method:'post',
             headers: {'Content-Type' : 'application/json'},

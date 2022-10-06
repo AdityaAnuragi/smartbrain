@@ -25,6 +25,21 @@ class Register extends Component {
 
 
     onSubmitRegister = () => {
+        this.props.changeEmailArg(this.state.regEmail);
+
+        // fetch('http://localhost:3000/image',{
+        //     method : 'put',
+        //     headers : {'Content-Type' : 'application/json'},
+        //     body : JSON.stringify({
+        //         email : this.state.regEmail,
+        //         home : false
+        //     })
+        // })
+        //     .then(response => response.json())
+        //     .then(entries => this.props.changeEntriesArg(entries))
+
+
+
         fetch('http://localhost:3000/register',{
             method : 'post',
             headers : {'Content-Type' : 'application/json'},
@@ -35,7 +50,20 @@ class Register extends Component {
             })
         })
             .then(response => response.json())
-            .then(this.props.gchaneHomeArg(true))
+
+
+        fetch('http://localhost:3000/image',{
+            method : 'put',
+            headers : {'Content-Type' : 'application/json'},
+            body : JSON.stringify({
+                email : this.state.regEmail,
+                home : false
+            })
+        })
+            .then(response => response.json())
+            .then(entries => this.props.changeEntriesArg(entries))
+            
+        this.props.changeHomeArg(true)
     }
 
 

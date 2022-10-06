@@ -31,10 +31,23 @@ class App extends Component {
       anObj: {},
       imageAspect: {},
       boxDisplay: false,
-      home: false,
-      loc: "sign" // loc is either "sign" or "register"
+      home: false, // true means at home screen false means signIn or Register
+      loc: "sign", // loc is either "sign" or "register"
+      loggedInUser : { // contains email and entries of the current user
+        userEmail : "",
+        userEntries : 0
+      }
     }
   }
+
+  currentEmail = (mail) => {
+    this.setState(Object.assign(this.state.loggedInUser,{userEmail : mail}))
+  }
+
+  currentEntries = (value) => {
+    this.setState(Object.assign(this.state.loggedInUser,{userEntries : value}))
+  }
+
 
   boxInfo = (stuff) => {
     let objwithboundinginfo = {
@@ -88,6 +101,18 @@ class App extends Component {
       .then(result => this.boxInfo(result.outputs[0].data.regions[0].region_info.bounding_box))
       // .then(result => console.log(result.outputs[0].data.regions[0].region_info.bounding_box))
       .catch(error => console.log('error', error));
+
+      fetch('http://localhost:3000/image',{
+        method : 'put',
+        headers : {'Content-Type' : 'application/json'},
+        body : JSON.stringify({
+          email : this.state.loggedInUser.userEmail,
+          home : true
+        })
+      })
+        .then(response => response.json())
+        .then(entries => this.currentEntries(entries))
+
   }
 
   onInputChangeFunc = (event) => {
@@ -101,6 +126,7 @@ class App extends Component {
   }
 
   changeHomeFunc = (stuff) => {
+    this.setState({input : ""})
     this.setState({ home: stuff })
   }
 
@@ -112,7 +138,9 @@ class App extends Component {
             ? <div className="App">
               <Navigation changeHomeArg={this.changeHomeFunc} />
               <Logo />
-              <Rank />
+              <Rank 
+                info = {this.state.loggedInUser}
+              />
               <ImageLinkForm
                 onInputChange={this.onInputChangeFunc}
                 onSubmit={this.onButtonSubmitFunc}
@@ -125,8 +153,18 @@ class App extends Component {
             </div>
             : (
               this.state.loc === "sign"
-                ? <Sign changeLocArg={this.changeLocFunc} changeHomeArg={this.changeHomeFunc} />
-                : <Register changeLocArg={this.changeLocFunc} changeHomeArg={this.changeHomeFunc} />
+                ? <Sign 
+                    changeLocArg={this.changeLocFunc} 
+                    changeHomeArg={this.changeHomeFunc} 
+                    changeEmailArg={this.currentEmail} 
+                    changeEntriesArg={this.currentEntries}
+                  />
+                : <Register 
+                    changeLocArg={this.changeLocFunc} 
+                    changeHomeArg={this.changeHomeFunc} 
+                    changeEmailArg={this.currentEmail} 
+                    changeEntriesArg={this.currentEntries}
+                  />
             )
         }
       </>
