@@ -35,7 +35,7 @@ class Register extends Component {
             })
         })
             .then(response => response.json())
-            .then(this.props.changeHomeArg(true))
+            .then(this.props.gchaneHomeArg(true))
     }
 
 
