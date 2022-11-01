@@ -35,6 +35,7 @@ class Register extends Component {
                 password : this.state.regPassword
             })
         })
+        .then(answer => console.log(answer))
         
         
         
