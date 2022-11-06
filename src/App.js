@@ -102,7 +102,7 @@ class App extends Component {
       // .then(result => console.log(result.outputs[0].data.regions[0].region_info.bounding_box))
       .catch(error => console.log('error', error));
 
-      fetch('http://localhost:3000/image',{
+      fetch('https://smartbrainapiv2.herokuapp.com/image',{
         method : 'put',
         headers : {'Content-Type' : 'application/json'},
         body : JSON.stringify({

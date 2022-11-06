@@ -26,7 +26,7 @@ class Register extends Component {
 
     onSubmitRegister = () => {
         this.props.changeEmailArg(this.state.regEmail);
-        fetch('http://localhost:3000/register',{
+        fetch('https://smartbrainapiv2.herokuapp.com/register',{
             method : 'post',
             headers : {'Content-Type' : 'application/json'},
             body : JSON.stringify({
@@ -39,7 +39,7 @@ class Register extends Component {
         
         
         
-        fetch('http://localhost:3000/image',{
+        fetch('https://smartbrainapiv2.herokuapp.com/image',{
             method : 'put',
             headers : {'Content-Type' : 'application/json'},
             body : JSON.stringify({
