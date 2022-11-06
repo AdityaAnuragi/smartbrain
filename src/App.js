@@ -4,7 +4,7 @@ import './App.css';
 import Navigation from './Navigation/Navigation';
 import './Navigation/Navigation.css';
 
-import Logo from './Logo/Logo';
+// import Logo from './Logo/Logo';
 import './Logo/Logo.css';
 
 import Rank from './Rank/Rank';
@@ -137,7 +137,7 @@ class App extends Component {
           this.state.home === true
             ? <div className="App">
               <Navigation changeHomeArg={this.changeHomeFunc} />
-              <Logo />
+              {/* <Logo /> */}
               <Rank 
                 info = {this.state.loggedInUser}
               />
